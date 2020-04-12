@@ -9,4 +9,6 @@ routes.get('/posts', PostController.index);
 routes.post('/posts', multer(multerConfig).single('file'), PostController.create);
 routes.delete('/posts/:id', PostController.delete);
 
+// routes.post('/multiple/posts', multer(multerConfig).array('file'), )
+
 module.exports = routes;

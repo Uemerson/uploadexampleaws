@@ -26,7 +26,7 @@ PostSchema.pre('remove', function () {
   if (process.env.STORAGE_TYPE === 'local') {
     return fs.unlink(path.resolve(__dirname, '..', '..', 'tmp', 'uploads', this.key), (err) => {
       if (err) {
-        console.log("Failed to delete local file:" + err);
+        console.log('Failed to delete local file:' + err);
       } else {
         console.log('Successfully deleted local file');
       }
@@ -39,10 +39,10 @@ PostSchema.pre('remove', function () {
       })
       .promise()
       .then(response => {
-        console.log(response.status);
+        console.log('Successfully deleted AWS S3 file: ' + response.status);
       })
       .catch(response => {
-        console.log(response.status);
+        console.log('Failed to delete AWS S3 file:' + response.status);
       });
   }
 });
